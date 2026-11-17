@@ -93,7 +93,7 @@
   .facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px;font-size:14.5px;color:#FFE3D6;font-weight:600}
   .facts li{list-style:none;display:flex;align-items:center;gap:7px}
   .facts .ico{width:17px;height:17px;color:var(--yellow)}
-  .vsl{position:relative;justify-self:center;width:min(100%,calc(54svh * 9 / 16),380px);aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#2b1214;box-shadow:0 26px 50px -20px rgba(60,6,10,.7);border:3px solid rgba(255,255,255,.14)}
+  .vsl{position:relative;justify-self:center;width:min(100%,calc(48svh * 9 / 16),380px);aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#2b1214;box-shadow:0 26px 50px -20px rgba(60,6,10,.7);border:3px solid rgba(255,255,255,.14)}
   .vsl video{display:block;width:100%;height:100%;object-fit:cover;cursor:pointer}
   .vsl-sound{position:absolute;left:50%;top:14px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;background:var(--yellow);color:var(--ink);font:800 15px/1 var(--display);padding:11px 16px;border-radius:999px;box-shadow:0 6px 16px -4px rgba(43,18,20,.6);white-space:nowrap;animation:pulse 1.8s ease-in-out infinite}
   .vsl-sound svg{width:20px;height:20px;fill:currentColor;flex:none}
@@ -102,8 +102,10 @@
   .cta{text-align:center}.cta .btn{margin:0 auto}
   @media(max-width:859px){
     .hero .grid{gap:16px}
-    .hero .copy{text-align:center}.hero .lede{margin-left:auto;margin-right:auto;margin-top:10px;font-size:16px}.facts{justify-content:center}
-    .hero h1{font-size:clamp(30px,8.4vw,44px)}
+    .hero .copy{text-align:center}.hero .lede{margin-left:auto;margin-right:auto;margin-top:8px;font-size:15px;line-height:1.45}.facts{justify-content:center}
+    .hero h1{font-size:clamp(27px,7.5vw,44px);line-height:1.05}
+    .hero{padding-top:18px}
+    .cta .btn{font-size:17px;padding:13px 18px}
     .buy{margin-top:4px}
   }
   @media(min-width:860px){
@@ -235,8 +237,8 @@
 <header class="hero">
   <div class="wrap grid">
     <div class="copy">
-      <h1>Faça panetone gourmet em casa e <span class="u">venda neste Natal<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 20 C 70 6, 150 26, 296 10"/></svg></span></h1>
-      <p class="lede">Guia ilustrado para iniciantes: da massa fofinha aos recheios, embalagem e preço de venda.</p>
+      <h1>Aprenda a fazer o panetone recheado que todo mundo quer <span class="u">comprar no Natal<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 20 C 70 6, 150 26, 296 10"/></svg></span></h1>
+      <p class="lede">Passo a passo com fotos, mesmo que você nunca tenha feito panetone: da massa ao recheio e ao preço de venda.</p>
     </div>
     <div class="vsl" id="vsl">
       <video id="vslVideo" src="video-hero.mp4" poster="video-hero-capa.jpg" width="540" height="960" muted autoplay loop playsinline preload="metadata" aria-label="Vídeo: confeiteira apresenta o guia de panetone gourmet"></video>
@@ -244,7 +246,7 @@
     </div>
     <div class="cta">
       <div class="buy">
-        <a class="btn" href="#oferta">QUERO O GUIA POR R$ 19,99<small>Acesso imediato no seu e-mail</small></a>
+        <a class="btn" href="#oferta">QUERO COMEÇAR A VENDER <span style="white-space:nowrap">NESTE NATAL</span><small>R$ 19,99 · acesso imediato no seu e-mail</small></a>
         <ul class="facts">
           <li><svg class="ico"><use href="#i-book"/></svg>41 páginas</li>
           <li><svg class="ico"><use href="#i-camera"/></svg>Passo a passo com fotos</li>
@@ -364,7 +366,7 @@
         </ul>
         <div class="price"><small>R$</small>19,99</div>
         <p class="pnote">Pagamento único, sem mensalidade</p>
-        <a class="btn js-checkout" href="#">QUERO MEU GUIA AGORA</a>
+        <a class="btn js-checkout" href="#">QUERO COMEÇAR A VENDER <span style="white-space:nowrap">NESTE NATAL</span></a>
         <ul class="steps">
           <li><svg class="ico"><use href="#i-pix"/></svg>Pague com Pix ou PicPay</li>
           <li><svg class="ico"><use href="#i-mail"/></svg>Receba o PDF no e-mail</li>
@@ -389,7 +391,7 @@
       <details><summary>Posso vender os panetones que eu fizer?<svg class="ico"><use href="#i-plus"/></svg></summary><p>Pode. O guia foi pensado para quem quer produzir e vender, com um módulo sobre custo, preço, embalagem e etiqueta. Siga sempre as regras sanitárias da sua cidade.</p></details>
       <details><summary>Quais as formas de pagamento?<svg class="ico"><use href="#i-plus"/></svg></summary><p>Pix ou PicPay, no checkout seguro da Cakto. O valor é R$ 19,99, pago uma única vez.</p></details>
     </div>
-    <div class="center" style="margin-top:40px"><a class="btn" href="#oferta">QUERO O GUIA POR R$ 19,99</a></div>
+    <div class="center" style="margin-top:40px"><a class="btn" href="#oferta">QUERO COMEÇAR A VENDER <span style="white-space:nowrap">NESTE NATAL</span><small>R$ 19,99 · acesso imediato no seu e-mail</small></a></div>
   </div>
 </section>
 
@@ -403,7 +405,7 @@
 
 <div class="sticky" id="sticky">
   <div class="p">Guia completo<b>R$ 19,99</b></div>
-  <a class="btn" href="#oferta">QUERO O GUIA</a>
+  <a class="btn" href="#oferta">QUERO COMEÇAR A VENDER</a>
 </div>
 
 <script>
