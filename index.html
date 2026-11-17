@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="hero-panetone-760.jpg" imagesrcset="hero-panetone-760.jpg 760w, hero-panetone.jpg 1200w" imagesizes="(min-width:860px) 560px, 100vw">
+<link rel="preload" as="image" href="video-hero-capa.jpg">
 
 <script>
   /* ====== CONFIGURAÇÃO ======
@@ -93,16 +93,26 @@
   .facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px;font-size:14.5px;color:#FFE3D6;font-weight:600}
   .facts li{list-style:none;display:flex;align-items:center;gap:7px}
   .facts .ico{width:17px;height:17px;color:var(--yellow)}
+  .vsl{position:relative;justify-self:center;width:min(100%,calc(54svh * 9 / 16),380px);aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#2b1214;box-shadow:0 26px 50px -20px rgba(60,6,10,.7);border:3px solid rgba(255,255,255,.14)}
+  .vsl video{display:block;width:100%;height:100%;object-fit:cover;cursor:pointer}
+  .vsl-sound{position:absolute;left:50%;top:14px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;background:var(--yellow);color:var(--ink);font:800 15px/1 var(--display);padding:11px 16px;border-radius:999px;box-shadow:0 6px 16px -4px rgba(43,18,20,.6);white-space:nowrap;animation:pulse 1.8s ease-in-out infinite}
+  .vsl-sound svg{width:20px;height:20px;fill:currentColor;flex:none}
+  .vsl-sound[hidden]{display:none}
+  @keyframes pulse{50%{transform:translateX(-50%) scale(1.06)}}
+  .cta{text-align:center}.cta .btn{margin:0 auto}
   @media(max-width:859px){
-    .hero .copy{text-align:center}.hero .lede{margin-left:auto;margin-right:auto}.facts{justify-content:center}
-    .photo{order:-1;margin:0 4px}
-    .sticker{width:78px;height:78px}.sticker b{font-size:25px}.sticker span{font-size:11px}
+    .hero .grid{gap:16px}
+    .hero .copy{text-align:center}.hero .lede{margin-left:auto;margin-right:auto;margin-top:10px;font-size:16px}.facts{justify-content:center}
+    .hero h1{font-size:clamp(30px,8.4vw,44px)}
+    .buy{margin-top:4px}
   }
   @media(min-width:860px){
-    .hero{padding:64px 0 76px}
-    .hero .grid{grid-template-columns:1.1fr 1fr;gap:56px}
+    .hero{padding:56px 0 72px}
+    .hero .grid{grid-template-columns:1.1fr 1fr;grid-template-areas:"copy vsl" "cta vsl";column-gap:56px;row-gap:0;align-items:start}
+    .hero .copy{grid-area:copy;align-self:end}.vsl{grid-area:vsl;align-self:center;width:min(100%,360px)}.cta{grid-area:cta;text-align:left}.cta .btn{margin:0}
     .hero h1{font-size:clamp(48px,5.2vw,66px)}
   }
+  @media (prefers-reduced-motion:reduce){.vsl-sound{animation:none}}
 
   /* por que */
   .why{display:grid;gap:40px;align-items:center}
@@ -227,6 +237,12 @@
     <div class="copy">
       <h1>Faça panetone gourmet em casa e <span class="u">venda neste Natal<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 20 C 70 6, 150 26, 296 10"/></svg></span></h1>
       <p class="lede">Guia ilustrado para iniciantes: da massa fofinha aos recheios, embalagem e preço de venda.</p>
+    </div>
+    <div class="vsl" id="vsl">
+      <video id="vslVideo" src="video-hero.mp4" poster="video-hero-capa.jpg" width="540" height="960" muted autoplay loop playsinline preload="metadata" aria-label="Vídeo: confeiteira apresenta o guia de panetone gourmet"></video>
+      <button class="vsl-sound" id="vslSound" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Toque para ouvir</button>
+    </div>
+    <div class="cta">
       <div class="buy">
         <a class="btn" href="#oferta">QUERO O GUIA POR R$ 19,99<small>Acesso imediato no seu e-mail</small></a>
         <ul class="facts">
@@ -235,11 +251,6 @@
           <li><svg class="ico"><use href="#i-gift"/></svg>2 sabores bônus</li>
         </ul>
       </div>
-    </div>
-    <div class="photo">
-      <img src="hero-panetone-760.jpg" srcset="hero-panetone-760.jpg 760w, hero-panetone.jpg 1200w" sizes="(min-width:860px) 560px, 100vw" alt="Três fatias de panetone gourmet recheadas: chocolate com chocolate branco, doce de leite e chocolate, sobre tábua de madeira com enfeites de Natal" width="1200" height="830" fetchpriority="high">
-      <span class="credit">Foto: Michele Nascimento Confeitaria</span>
-      <div class="sticker"><div><b>7</b><span>sabores<br>gourmet</span></div></div>
     </div>
   </div>
 </header>
@@ -405,6 +416,24 @@
     st.classList.toggle('show', h.bottom < 0 && !(o.top < innerHeight && o.bottom > 0));
   }
   addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // Vídeo da Hero: começa sem som em loop; ao tocar, volta ao início com som
+  (function(){
+    var v = document.getElementById('vslVideo'), b = document.getElementById('vslSound'), unmuted = false;
+    if (!v || !b) return;
+    function comSom(){
+      unmuted = true; b.hidden = true;
+      v.loop = false; v.muted = false; v.currentTime = 0;
+      var p = v.play(); if (p && p.catch) p.catch(function(){});
+      if (window.fbq) fbq('trackCustom', 'VideoHeroSom');
+    }
+    b.addEventListener('click', comSom);
+    v.addEventListener('click', function(){
+      if (!unmuted) return comSom();
+      if (v.paused) v.play(); else v.pause();
+    });
+    v.addEventListener('ended', function(){ v.muted = true; v.loop = true; unmuted = false; b.hidden = false; v.play(); });
+  })();
 </script>
 </body>
 </html>
